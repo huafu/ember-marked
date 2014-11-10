@@ -1,6 +1,7 @@
 # ember-marked
 
-Ember component to easily render markdown (using `marked`, so GFM and syntax highlighting supported from scratch)
+Ember component to easily render markdown (using `marked`, so GFM and syntax highlighting supported from scratch).
+A very basic example application using those components is available [there](http://huafu.github.io/ember-marked/).
 
 ## Installation
 
