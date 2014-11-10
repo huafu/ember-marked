@@ -1,0 +1,17 @@
+<h2 id="title">ember-marked</h2>
+
+<section>
+  <header>Markdown example</header>
+  <div>{{textarea value=markdownSource}}</div>
+  {{markdown-section content=markdownSource}}
+</section>
+<hr class="split"/>
+<section>
+  <header>Code section example</header>
+  <div>
+    {{view Ember.Select content=this value=codeLanguage prompt="[auto]"}}
+    <span>Language used: <code>{{codeDetectedLanguage}}</code></span>
+  </div>
+  <div>{{textarea value=codeSource}}</div>
+  {{code-section content=codeSource language=codeLanguage detectedLanguage=codeDetectedLanguage}}
+</section>
