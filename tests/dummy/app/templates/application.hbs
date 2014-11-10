@@ -3,23 +3,37 @@
 <section class="markdown-wrapper">
   <header>Markdown example</header>
   <div>
-    <label>{{input type='checkbox' checked=markdownEditMode}} edit mode</label>
+    <label>{{input type='checkbox' checked=markdownSideBySideMode}} side-by-side</label>
+    {{#unless markdownSideBySideMode}}
+      <label>{{input type='checkbox' checked=markdownEditMode}} edit</label>
+    {{/unless}}
   </div>
-  <div {{bind-attr class=':container-wrapper markdownEditMode:edit-mode:preview-mode'}}>
-  {{textarea value=markdownSource class='container edit'}}
-  {{markdown-section content=markdownSource class='container preview'}}
+  <div {{bind-attr class=':container-wrapper markdownEditMode:edit-mode:preview-mode markdownSideBySideMode:side-by-side:normal'}}>
+    <div class="container edit">
+      <div class="textarea-wrapper">
+        {{textarea value=markdownSource}}
+      </div>
+    </div>
+    {{markdown-section content=markdownSource class='container preview'}}
   </div>
 </section>
 <hr class="split"/>
 <section class="code-wrapper">
   <header>Code section example</header>
   <div>
+    <label>{{input type='checkbox' checked=codeSideBySideMode}} side-by-side</label>
     {{view Ember.Select content=this value=codeLanguage prompt="[auto]"}}
     <span>Language used: <code>{{codeDetectedLanguage}}</code></span>
-    <label>{{input type='checkbox' checked=codeEditMode}} edit mode</label>
+    {{#unless codeSideBySideMode}}
+      <label>{{input type='checkbox' checked=codeEditMode}} edit</label>
+    {{/unless}}
   </div>
-  <div {{bind-attr class=':container-wrapper codeEditMode:edit-mode:preview-mode'}}>
-  {{textarea value=codeSource class='container edit'}}
-  {{code-section content=codeSource language=codeLanguage detectedLanguage=codeDetectedLanguage class='container preview'}}
+  <div {{bind-attr class=':container-wrapper codeEditMode:edit-mode:preview-mode codeSideBySideMode:side-by-side:normal'}}>
+    <div class="container edit">
+      <div class="textarea-wrapper">
+        {{textarea value=codeSource}}
+      </div>
+    </div>
+    {{code-section content=codeSource language=codeLanguage detectedLanguage=codeDetectedLanguage class='container preview'}}
   </div>
 </section>

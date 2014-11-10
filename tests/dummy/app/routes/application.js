@@ -19,7 +19,12 @@ export default Ember.Route.extend({
 
   setupController: function (controller) {
     this._super.apply(this, arguments);
-    controller.set('markdownSource', MARKDOWN_SOURCE);
-    controller.set('codeSource', CODE_SOURCE);
+    controller.setProperties({
+      markdownSource:         MARKDOWN_SOURCE,
+      markdownSideBySideMode: true,
+      
+      codeSource:         CODE_SOURCE,
+      codeSideBySideMode: true
+    });
   }
 });
