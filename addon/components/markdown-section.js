@@ -21,7 +21,7 @@ var MarkdownSectionComponent = SectionComponent.extend({
    * @property delayedPropertyFunction
    * @inheritDoc
    */
-  delayedPropertyFunction:    function (source) {
+  delayedPropertyFunction: function (source) {
     var self = this;
     /* jshint -W116 */
     if (source == null) {
@@ -91,7 +91,9 @@ MarkdownSectionComponent.reopenClass({
      * @property highlight
      * @type Function
      */
-    options.highlight = CodeSectionComponent.highligt;
+    options.highlight = function highlight(code, language) {
+      return CodeSectionComponent.highlight(code, language);
+    };
 
     return options;
   })

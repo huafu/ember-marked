@@ -2,8 +2,10 @@
 
 <section>
   <header>Markdown example</header>
-  <div>{{textarea value=markdownSource}}</div>
-  {{markdown-section content=markdownSource}}
+  <div class="container-wrapper">
+  {{textarea value=markdownSource class='container edit'}}
+  {{markdown-section content=markdownSource class='container preview'}}
+  </div>
 </section>
 <hr class="split"/>
 <section>
@@ -12,6 +14,8 @@
     {{view Ember.Select content=this value=codeLanguage prompt="[auto]"}}
     <span>Language used: <code>{{codeDetectedLanguage}}</code></span>
   </div>
-  <div>{{textarea value=codeSource}}</div>
-  {{code-section content=codeSource language=codeLanguage detectedLanguage=codeDetectedLanguage}}
+  <div class="container-wrapper">
+  {{textarea value=codeSource class='container edit'}}
+  {{code-section content=codeSource language=codeLanguage detectedLanguage=codeDetectedLanguage class='container preview'}}
+  </div>
 </section>
