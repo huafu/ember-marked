@@ -44,23 +44,23 @@ div.container-wrapper > .container {
   bottom: 0;
 }
 
-div.container-wrapper > .container.edit {
+div.container-wrapper.preview-mode > .container.edit {
   display: none;
 }
 
-div.container-wrapper:hover > .container.edit {
+div.container-wrapper.edit-mode > .container.edit {
   display: block;
   animation-duration: 0.7s;
   animation-name: fadeInFromNone;
 }
 
-div.container-wrapper > .container.preview {
+div.container-wrapper.preview-mode > .container.preview {
   display: block;
   animation-duration: 0.7s;
   animation-name: fadeInFromNone;
 }
 
-div.container-wrapper:hover > .container.preview {
+div.container-wrapper.edit-mode > .container.preview {
   display: none;
 }
 

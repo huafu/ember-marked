@@ -2,7 +2,10 @@
 
 <section>
   <header>Markdown example</header>
-  <div class="container-wrapper">
+  <div>
+    <label>{{input type='checkbox' checked=markdownEditMode}} edit mode</label>
+  </div>
+  <div {{bind-attr class=':container-wrapper markdownEditMode:edit-mode:preview-mode'}}>
   {{textarea value=markdownSource class='container edit'}}
   {{markdown-section content=markdownSource class='container preview'}}
   </div>
@@ -13,8 +16,9 @@
   <div>
     {{view Ember.Select content=this value=codeLanguage prompt="[auto]"}}
     <span>Language used: <code>{{codeDetectedLanguage}}</code></span>
+    <label>{{input type='checkbox' checked=codeEditMode}} edit mode</label>
   </div>
-  <div class="container-wrapper">
+  <div {{bind-attr class=':container-wrapper codeEditMode:edit-mode:preview-mode'}}>
   {{textarea value=codeSource class='container edit'}}
   {{code-section content=codeSource language=codeLanguage detectedLanguage=codeDetectedLanguage class='container preview'}}
   </div>
