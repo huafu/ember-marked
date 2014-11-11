@@ -22,7 +22,7 @@ export default Ember.Route.extend({
     controller.setProperties({
       markdownSource:         MARKDOWN_SOURCE,
       markdownSideBySideMode: true,
-      
+
       codeSource:         CODE_SOURCE,
       codeSideBySideMode: true
     });
