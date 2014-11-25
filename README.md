@@ -9,8 +9,8 @@ A very basic example application using those components is available [there](htt
 
 ## Using
 
-* To render markdown content, simply use the component in your templates: `{{markdown-section someMarkdownProperty}}`
-* You also have access to a `code-section` component used to render syntax highlighted code: `{{code-section someSourceCode language='javascript'}}`
+* To render markdown content, simply use the component in your templates: `{{markdown-section content=someMarkdownProperty}}`
+* You also have access to a `code-section` component used to render syntax highlighted code: `{{code-section content=someSourceCode language='javascript'}}`
 * You can look at the example application under `tests/dummy`, especially the `app/templates/application.hbs` showing a very simple example of using this addon.
 
 ## Configuration
