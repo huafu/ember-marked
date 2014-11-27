@@ -20,13 +20,13 @@ A very basic example application using those components is available [there](htt
     marked: {
       // marked settings
       //version: '0.3.2', // default version, used when the js is not specified
-      js: false, // disable inclusion of the javascript (can be the URL to some other CDN)
+      //js: false, // disable inclusion of the javascript (can be the URL to some other CDN)
       
       // highlight.js settings
       highlightjs: { // <== set to false to disable totally the inclusion of highlightjs
         //version: '8.3', // default version, used when the js and/or css are not specified
-        js: false, // disable inclusion of the javascript (can be the URL to some other CDN)
-        css: false, // disable inclusion of the css (can be the URL to some other CDN)
+        //js: false, // disable inclusion of the javascript (can be the URL to some other CDN)
+        //css: false, // disable inclusion of the css (can be the URL to some other CDN)
       }
     }
     ```
