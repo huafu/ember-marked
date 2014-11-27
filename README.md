@@ -6,6 +6,8 @@ A very basic example application using those components is available [there](htt
 ## Installation
 
 * `npm install --save-dev ember-marked`
+* `bower install marked --save`
+* Add `app.import('bower_components/marked/lib/marked.js');` to Brocfile.js
 
 ## Using
 
