@@ -12,6 +12,7 @@ A very basic example application using those components is available [there](htt
 * To render markdown content, simply use the component in your templates: `{{markdown-section content=someMarkdownProperty}}`
 * You also have access to a `code-section` component used to render syntax highlighted code: `{{code-section content=someSourceCode language='javascript'}}`
 * You can look at the example application under `tests/dummy`, especially the `app/templates/application.hbs` showing a very simple example of using this addon.
+* If you'd like to specify [options to pass to marked](https://github.com/chjj/marked#options-1), just set the "options" property when you use the component: `{{markdown-section content=markdownProperty options=myMarkdownOptions}}`
 
 ## Configuration
 
