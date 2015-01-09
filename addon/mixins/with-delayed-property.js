@@ -57,11 +57,12 @@ var WithDelayedPropertyMixin = Ember.Mixin.create({
    * @method updateDelayedPropertyValue
    */
   updateDelayedPropertyValue: function () {
-    var value, self = this;
-    var sourceValue = this.get(this.get('delayedPropertyName'));
+    var value, self = this, sourceValue;
     if (this.isDestroyed || this.isDestroying) {
       return;
     }
+    // added `__dummy__` in case there is no delayed property set, to avoid errors
+    sourceValue = this.get(this.get('delayedPropertyName') || '__dummy__');
     if (this._delayedPropertyPromise) {
       this._scheduleDelayedPropertyUpdate();
     }
@@ -167,7 +168,7 @@ var WithDelayedPropertyMixin = Ember.Mixin.create({
    * @private
    */
   _scheduleDelayedPropertyUpdate: Ember.on('init', function () {
-    var value = this.get(this.get('delayedPropertyName'));
+    var value = this.get(this.get('delayedPropertyName') || '__dummy__');
     Ember.run[this.get('delayedPropertyMethod')](
       this, 'updateDelayedPropertyValue', value, this.get('delayedPropertyDelay')
     );
