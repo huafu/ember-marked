@@ -89,7 +89,16 @@ CodeSectionComponent.reopenClass({
     var result;
     if (typeof hljs !== 'undefined') {
       if (language) {
-        result = hljs.highlight(language, code, true);
+        try {
+          result = hljs.highlight(language, code, true);
+        }
+        catch (e) {
+          Ember.warn(
+            '[marked] Failing to highlight some code with language `' + language +
+            '`, trying auto-detecting language (error: ' + e + ').'
+          );
+          result = hljs.highlightAuto(code);
+        }
       }
       else {
         result = hljs.highlightAuto(code);

@@ -44,7 +44,10 @@ var SectionComponent = Ember.Component.extend(WithDelayedPropertyMixin, {
    * @type String
    */
   handlebarsHtml: Ember.computed('html', function () {
-    return Ember.String.htmlSafe(this.get('html') || '');
+    var html = this.get('html');
+    if (typeof html === 'string') {
+      return Ember.String.htmlSafe(html);
+    }
   }).readOnly()
 });
 

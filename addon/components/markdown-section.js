@@ -34,6 +34,7 @@ var MarkdownSectionComponent = SectionComponent.extend({
         var options = self.get('_markedOptions');
         marked(source, options, function (err, content) {
           if (err) {
+            Ember.warn('[ember-marked] ' + err);
             reject(err);
           }
           else {
@@ -62,9 +63,7 @@ var MarkdownSectionComponent = SectionComponent.extend({
     var localOptions = this.get('options');
     var defaultOptions = Ember.get(MarkdownSectionComponent, 'defaultOptions');
     Ember.merge(options, defaultOptions);
-    if (localOptions) {
-      Ember.merge(options, localOptions);
-    }
+    Ember.merge(options, localOptions);
     return options;
   }).readOnly()
 });

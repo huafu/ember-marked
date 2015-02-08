@@ -142,7 +142,7 @@ var WithDelayedPropertyMixin = Ember.Mixin.create({
    */
   _setDelayedPropertyValue: function (value) {
     var name, srcName;
-    if (this.isDestroyed || this.isDestroying) {
+    if (this.isDestroyed || this.isDestroying || value === DO_NOT_SET) {
       return;
     }
     name = this.get('delayedPropertyDestination');
