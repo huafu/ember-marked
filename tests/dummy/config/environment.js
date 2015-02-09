@@ -6,6 +6,17 @@ module.exports = function (environment) {
     environment:  environment,
     baseURL:      process.env.EMBER_CLI_BASE_URL || '/',
     locationType: process.env.EMBER_CLI_LOCATION_TYPE || 'auto',
+
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src':  "'self' 'unsafe-inline' 'unsafe-eval' cdnjs.cloudflare.com",
+      'font-src':    "'self'",
+      'connect-src': "'self' cdnjs.cloudflare.com",
+      'img-src':     "'self'",
+      'style-src':   "'self' 'unsafe-inline' cdnjs.cloudflare.com",
+      'frame-src':   "ghbtns.com platform.twitter.com"
+    },
+
     EmberENV:     {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
