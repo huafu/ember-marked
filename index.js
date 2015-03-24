@@ -4,8 +4,8 @@ module.exports = {
   name: 'ember-marked',
 
   contentFor: function (type, config) {
-    var conf = config.marked || {}, what, content = [];
-    if (type === 'head') {
+    var conf = config.marked || {}, what, cssContent = [], scriptContent = [];
+    if (type === 'head' || type === 'body') {
       // include highlightjs
       if (!conf.hasOwnProperty('highlightjs') || conf.highlightjs) {
         if (conf.highlightjs && typeof conf.highlightjs === 'object') {
@@ -23,11 +23,11 @@ module.exports = {
         if (what.css == null || what.css === true) {
           what.css = '//cdnjs.cloudflare.com/ajax/libs/highlight.js/' + what.version + '/styles/default.min.css';
         }
-        if (what.js) {
-          content.push('<link rel="stylesheet" href="' + what.css + '">');
-        }
         if (what.css) {
-          content.push('<script src="' + what.js + '"></script>');
+          cssContent.push('<link rel="stylesheet" href="' + what.css + '">');
+        }
+        if (what.js) {
+          scriptContent.push('<script src="' + what.js + '"></script>');
         }
       }
 
@@ -39,9 +39,15 @@ module.exports = {
         conf.js = '//cdnjs.cloudflare.com/ajax/libs/marked/' + conf.version + '/marked.min.js';
       }
       if (conf.js) {
-        content.push('<script src="' + conf.js + '"></script>');
+        scriptContent.push('<script src="' + conf.js + '"></script>');
       }
     }
-    return content.join('') || null;
+    if (type === 'head') {
+      return cssContent.join('');
+    }
+    if (type === 'body') {
+      return scriptContent.join('');
+    }
+    return null;
   }
 };
