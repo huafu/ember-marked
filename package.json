@@ -36,6 +36,7 @@
     "highlightjs"
   ],
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "demoURL": "https://huafu.github.io/ember-marked/"
   }
 }
