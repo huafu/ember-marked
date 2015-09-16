@@ -14,14 +14,14 @@ var WithDelayedPropertyMixin = Ember.Mixin.create({
    * @property delayedPropertyName
    * @type String
    */
-  delayedPropertyName:        Ember.required(),
+  delayedPropertyName:        null,
   /**
    * The name of the property to use as destination (computed value from source using the
    * `delayedPropertyFunction` will be set to this property)
    * @property delayedPropertyDestination
    * @type String
    */
-  delayedPropertyDestination: Ember.required(),
+  delayedPropertyDestination: null,
   /**
    * The delay to use with the `Ember.run.*` method
    * @property delayedPropertyDelay
