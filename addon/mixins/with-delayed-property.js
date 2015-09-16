@@ -116,7 +116,7 @@ var WithDelayedPropertyMixin = Ember.Mixin.create({
    * @method _teardownWithDelayedPropertyMixin
    * @private
    */
-  _teardownWithDelayedPropertyMixin: Ember.on('destroy', Ember.beforeObserver('delayedPropertyName',
+  _teardownWithDelayedPropertyMixin: Ember.on('destroy', Ember.observer('delayedPropertyName',
     function () {
       var prop = this.get('delayedPropertyName');
       if (prop) {
