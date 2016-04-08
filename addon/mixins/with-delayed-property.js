@@ -14,14 +14,14 @@ var WithDelayedPropertyMixin = Ember.Mixin.create({
    * @property delayedPropertyName
    * @type String
    */
-  delayedPropertyName:        Ember.required(),
+  delayedPropertyName:        null,
   /**
    * The name of the property to use as destination (computed value from source using the
    * `delayedPropertyFunction` will be set to this property)
    * @property delayedPropertyDestination
    * @type String
    */
-  delayedPropertyDestination: Ember.required(),
+  delayedPropertyDestination: null,
   /**
    * The delay to use with the `Ember.run.*` method
    * @property delayedPropertyDelay
@@ -116,7 +116,7 @@ var WithDelayedPropertyMixin = Ember.Mixin.create({
    * @method _teardownWithDelayedPropertyMixin
    * @private
    */
-  _teardownWithDelayedPropertyMixin: Ember.on('destroy', Ember.beforeObserver('delayedPropertyName',
+  _teardownWithDelayedPropertyMixin: Ember.on('destroy', Ember.observer('delayedPropertyName',
     function () {
       var prop = this.get('delayedPropertyName');
       if (prop) {
@@ -180,7 +180,9 @@ var WithDelayedPropertyMixin = Ember.Mixin.create({
  * @property DO_NOT_SET
  * @type Object
  */
-WithDelayedPropertyMixin.DO_NOT_SET = DO_NOT_SET;
+WithDelayedPropertyMixin.reopen({
+  DO_NOT_SET: DO_NOT_SET
+});
 
 
 export default WithDelayedPropertyMixin;
