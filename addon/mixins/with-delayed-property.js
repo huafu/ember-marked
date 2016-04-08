@@ -180,7 +180,9 @@ var WithDelayedPropertyMixin = Ember.Mixin.create({
  * @property DO_NOT_SET
  * @type Object
  */
-WithDelayedPropertyMixin.DO_NOT_SET = DO_NOT_SET;
+WithDelayedPropertyMixin.reopen({
+  DO_NOT_SET: DO_NOT_SET
+});
 
 
 export default WithDelayedPropertyMixin;
